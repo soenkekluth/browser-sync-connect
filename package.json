@@ -1,34 +1,31 @@
 {
-    "name": "browser-sync-connect",
-    "version": "0.1.0",
-    "description": "connect to browser sync without copying the script snippets to the html source",
-    "main": "src/browser-sync-connect.js",
-    "scripts": {
-        "build-debug": "browserify src/browser-sync-connect.js --s out > dist/browser-sync-connect.js",
-        "build-min": "browserify src/browser-sync-connect.js --s out | uglifyjs -c > dist/browser-sync-connect.min.js",
-        "build": "npm run build-debug && npm run build-min",
-        "watch": "watchify src/browser-sync-connect.js -d --s out -o dist/browser-sync-connect.js -v",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/soenkekluth/browser-sync-connect.git"
-    },
-    "keywords": [
-        "browser-sync",
-        "browsersync",
-        "connect",
-        "script"
-    ],
-    "author": "Sönke Kluth <soenke.kluth@gmail.com> (http://soenkekluth.com/)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/soenkekluth/browser-sync-connect/issues"
-    },
-    "homepage": "https://github.com/soenkekluth/browser-sync-connect",
-    "devDependencies": {
-        "uglify-js": "^2.4.13",
-        "browserify": "^3.46.0",
-        "watchify": "^0.8.3"
-    }
+  "name": "browser-sync-connect",
+  "version": "0.2.0",
+  "description": "connect to browser sync without copying the script snippets to the html source",
+  "main": "src/browser-sync-connect.js",
+  "scripts": {
+    "build-debug": "uglifyjs src/browser-sync-connect.js -b -o dist/browser-sync-connect.js",
+    "build-min": "uglifyjs src/browser-sync-connect.js -c -o dist/browser-sync-connect.min.js",
+    "build": "npm run build-debug && npm run build-min",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soenkekluth/browser-sync-connect.git"
+  },
+  "keywords": [
+    "browser-sync",
+    "browsersync",
+    "connect",
+    "script"
+  ],
+  "author": "Sönke Kluth <soenke.kluth@gmail.com> (http://soenkekluth.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soenkekluth/browser-sync-connect/issues"
+  },
+  "homepage": "https://github.com/soenkekluth/browser-sync-connect",
+  "devDependencies": {
+    "uglify-js": "latest"
+  }
 }
