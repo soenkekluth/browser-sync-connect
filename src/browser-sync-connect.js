@@ -12,7 +12,7 @@
 
         host = host || window.location.hostname;
         port = port || 3000;
-        version = version || '0.8.2';
+        version = version || '0.9.1';
 
         var socketUrl = '//' + host + ':' + port;
         var clientUrl = '//' + host + ':' + (port + 1);
