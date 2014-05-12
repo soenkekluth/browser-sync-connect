@@ -14,23 +14,29 @@
         port = port || 3000;
         version = version || '0.9.1';
 
+        var hasConnector =  parseFloat(version) >= 0.9;
+
         var socketUrl = '//' + host + ':' + port;
         var clientUrl = '//' + host + ':' + (port + 1);
 
         var script = document.createElement('script');
         script.src = socketUrl + '/socket.io/socket.io.js';
+        script.defer = hasConnector;
         script.id = id;
 
         script.onload = function() {
 
-            var s = document.createElement('script');
+            var s;
 
-            s.innerHTML = 'var ___socket___ = io.connect("' + socketUrl + '");';
-            document.body.appendChild(s);
-
+            if (!hasConnector) {
+                s = document.createElement('script');
+                s.innerHTML = 'var ___socket___ = io.connect("' + socketUrl + '");';
+                document.body.appendChild(s);
+            }
 
             s = document.createElement('script');
             s.src = clientUrl + '/client/browser-sync-client.' + version + '.js';
+            s.defer = hasConnector;
             document.body.appendChild(s);
         };
 
