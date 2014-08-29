@@ -7,27 +7,13 @@
         }
         host = host || window.location.hostname;
         port = port || 3e3;
-        version = version || "0.9.1";
-        var hasConnector = parseFloat(version) >= .9;
-        var socketUrl = "//" + host + ":" + port;
-        var clientUrl = "//" + host + ":" + (port + 1);
+        version = version || "1.3.6";
+        var clientUrl = "//" + host + ":" + port;
         var script = document.createElement("script");
-        script.src = socketUrl + "/socket.io/socket.io.js";
-        script.defer = hasConnector;
+        script.src = clientUrl + "/browser-sync-client." + version + ".js";
+        script.async = true;
         script.id = id;
-        script.onload = function() {
-            var s;
-            if (!hasConnector) {
-                s = document.createElement("script");
-                s.innerHTML = 'var ___socket___ = io.connect("' + socketUrl + '");';
-                document.body.appendChild(s);
-            }
-            s = document.createElement("script");
-            s.src = clientUrl + "/client/browser-sync-client." + version + ".js";
-            s.defer = hasConnector;
-            document.body.appendChild(s);
-        };
-        document.body.appendChild(script);
+        document.head.appendChild(script);
     };
     typeof module !== "undefined" && module.exports ? module.exports = browserSyncConnect : typeof define === "function" && define.amd ? define([], function() {
         return browserSyncConnect;
