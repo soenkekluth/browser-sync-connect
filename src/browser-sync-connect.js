@@ -21,7 +21,8 @@
     script.async = true;
     script.id = id;
 
-    document.head.appendChild(script);
+    var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
+    head.appendChild(script);
   };
 
 
