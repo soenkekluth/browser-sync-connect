@@ -1,6 +1,8 @@
 browser-sync-connect
 =============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/soenkekluth/browser-sync-connect.svg)](https://greenkeeper.io/)
+
 ### easy way to connect to browser sync without copy and paste the socket.io snippet.
 
 just one line to add the browser-sync script snippts dynamicly:
